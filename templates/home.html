@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Air Line Booking</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css')}}">
+</head>
+<body>
+    <h1 align="center">Welcome to Air Lambton</h1>
+
+    <ul>
+      <li><a class="active" href="http://127.0.0.1:5000/home">Home</a></li>
+      <li><a href="http://127.0.0.1:5000/managebooking">Manage Booking</a></li>
+      <li><a href="http://127.0.0.1:5000/contactus">Contact Us</a></li>
+      <li><a href="http://127.0.0.1:5000/faq">FAQ</a></li>
+      <li><a href="http://127.0.0.1:5000/covidupdate">Covid19 Updates</a></li>
+      <li><a href="http://127.0.0.1:5000/luggage">Luggage</a></li>
+        <li><a href="http://127.0.0.1:5000/login">Login</a></li>
+    </ul>
+
+    <img src="{{ url_for('static', filename='images/1.png')}}">
+
+<div class="copyright">
+	&copy; Copyright. Emerging Technology Project.
+</div>
+
+</body>
+</html>

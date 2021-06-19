@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css')}}">
+</head>
+<body>
+    <h1 align="center">Welcome to Air Lambton</h1>
+
+    <ul>
+      <li><a class="active" href="http://127.0.0.1:5000/home">Home</a></li>
+      <li><a href="http://127.0.0.1:5000/managebooking">Manage Booking</a></li>
+      <li><a href="http://127.0.0.1:5000/contactus">Contact Us</a></li>
+      <li><a href="http://127.0.0.1:5000/faq">FAQ</a></li>
+      <li><a href="http://127.0.0.1:5000/covidupdate">Covid19 Updates</a></li>
+      <li><a href="http://127.0.0.1:5000/luggage">Luggage</a></li>
+        <li><a href="http://127.0.0.1:5000/login">Login</a></li>
+    </ul>
+    <div>
+        <div class="wrapper">
+        <h2 style="text-align: left; padding-bottom: 10px;" tabindex="0">Login</h2>
+          <form method="post" name="contactusform" id="contactusform" class="newslettermainform" action="http://127.0.0.1:5000/contactusdata">
+            <label>Username *:</label>
+            <input type="text" id="username" name="username">
+
+           <label>Password *:</label>
+            <input type="text" id="password" name="password" >
+
+
+            <input type="submit" value="Submit">
+              <a href="http://127.0.0.1:5000/register">New Users - Register</a>
+              <br>
+              <a href="http://127.0.0.1:5000/forgot_password">Reset Password</a>
+          </form>
+</div>
+</div>
+    </div>
+    <div class="copyright">
+        &copy; Copyright. Emerging Technology Project.
+    </div>
+</body>
+</html>
