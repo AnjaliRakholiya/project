@@ -1,0 +1,171 @@
+ul
+    {
+      list-style-type: none;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      padding: 0;
+      overflow: hidden;
+      width: 100%;
+      background-color: #333;
+      align: center;
+    }
+
+li
+    {
+      float: left;
+    }
+
+li a
+    {
+      font-family: comic sans ms,Arial, Helvetica;
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+
+.active
+    {
+        color:#99ccff;
+        text-decoration:underline;
+    }
+
+li a:hover
+    {
+      background-color:#14bf98;
+    }
+
+.homepage img
+    {
+    width:50px;
+    height:50px;
+    display: block;
+    padding: 4px 6px;
+    }
+
+/*********************************************************************************/
+/* CSS For Contact US AND FOR FORMS */
+
+.about-section
+    {
+      font-family: comic sans ms, Helvetica, sans-serif;
+      font-size: 18px;
+      padding: 10px;
+      text-align: center;
+      background-color: #474e5d;
+      color: white;
+      margin-top: 10px;
+    }
+
+.column
+    {
+      float: left;
+      width: 17%;
+      margin-bottom: 16px;
+      margin-top: 16px;
+      margin-left: 9px;
+      margin-right: 9px;
+      padding: 0 8px;
+    }
+
+.column img
+{
+width:200px;
+height:230px;
+}
+
+.column img:hover
+    {
+      transform: scale(1.5);
+    }
+
+.title
+    {
+    font-family: comic sans ms, Helvetica, sans-serif;
+    text-align:center;
+    color:black;
+    }
+
+.container
+    {
+      padding: 0 16px;
+    }
+
+.centerimg
+	{
+		text-align:center;
+		margin-left:auto;
+		margin-right:auto;
+	}
+
+.contactus-image-main
+	{
+		text-align:center;
+		margin-left:auto;
+		margin-right:auto;
+	}
+
+.contactus-image-main img
+	{
+		width: 1325px;
+		height: 400px;
+		margin-top: 50px;
+	}
+
+.contactus-image img
+	{
+		width: 650px;
+		height: 250px;
+	}
+
+.newslettermain
+	{
+		padding: 20px;
+		background-color: #f1f1f1;
+	}
+
+
+  input[type=text], input[type=submit], input[type=date],  input[type=number], input[type=email],select, textarea{
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+label
+{
+font-family: comic sans ms,Helvetica;
+}
+
+ input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+}
+
+input[type=submit]:hover {
+  opacity: 0.8;
+}
+
+/*********************************************************************************/
+/* CSS For Covid Update page */
+
+.covidupdate blockquote
+	{
+		margin-left: 10px;
+		margin-right: 10px;
+		font-size: 14px;
+		padding-left: 10px;
+		padding-right: 10px;
+		font-family: Helvetica, comic sans ms, sans-serif;
+	}
+.wrapper{
+    width: 800px;
+    margin: 0 auto;
+    position: relative;
+}
