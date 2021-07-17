@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css')}}">
+</head>
+<body>
+    <h1 align="center">Welcome to Air Lambton</h1>
+
+    <ul>
+      <li><a class="active" href="http://127.0.0.1:5000/home">Home</a></li>
+      <li><a href="http://127.0.0.1:5000/managebooking">Manage Booking</a></li>
+      <li><a href="http://127.0.0.1:5000/contactus">Contact Us</a></li>
+      <li><a href="http://127.0.0.1:5000/faq">FAQ</a></li>
+      <li><a href="http://127.0.0.1:5000/covidupdate">Covid19 Updates</a></li>
+      <li><a href="http://127.0.0.1:5000/luggage">Luggage</a></li>
+        <li><a href="http://127.0.0.1:5000/login">Login</a></li>
+        <li><a href="http://127.0.0.1:5000/admin">Admin</a></li>
+    </ul>
+    <div>
+        <h2>Register</h2>
+        <div class="newslettermain">
+          <form method="post" name="contactusform" id="contactusform" class="newslettermainform" action="http://127.0.0.1:5000/contactusdata">
+              <p><h3>Required Account Information</h3></p>
+              <label>Title *:</label>
+              <select name="title" id="title">
+                  <option value="MASTER">MASTER</option>
+                  <option value="MISS">MISS</option>
+                  <option value="MR">MR</option>
+                  <option value="MRS">MRS</option>
+                  <option value="MS">MS</option>
+              </select>
+              <label>First name/Given name *:</label>
+              <input type="text" id="firstname" name="firstname">
+              <label>Last name/Family name *:</label>
+              <input type="text" id="lastname" name="lastname">
+              <label>Name on card *:</label>
+              <input type="text" id="cardname" name="cardname">
+              <label>Date of birth (DD/MM/YYYY) *:</label>
+              <input type="text" id="birthdate" name="birthdate">
+              <label>Mothers maiden name *:</label>
+              <input type="text" id="maiden_name" name="maiden_name">
+            <p><h3>Travel Document:</h3></p>
+
+            <label>Passport number *:</label>
+            <input type="text" id="passport" name="passport">
+
+              <label>Passport Expiry Date (DD/MMM/YYYY):*</label>
+            <input type="text" id="expirydate" name="expirydate">
+
+           <label>Password *:</label>
+            <input type="text" id="password" name="password" >
+              <input type="submit" value="Submit">
+          </form>
+</div>
+</div>
+    </div>
+    <div class="copyright">
+        &copy; Copyright. Emerging Technology Project.
+    </div>
+</body>
+</html>

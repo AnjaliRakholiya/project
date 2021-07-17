@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Air Line Booking</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css')}}">
+</head>
+<body>
+    <h1 align="center">Welcome to Air Lambton</h1>
+
+    <ul>
+      <li><a class="active" href="http://127.0.0.1:5000/home">Home</a></li>
+      <li><a href="http://127.0.0.1:5000/managebooking">Manage Booking</a></li>
+      <li><a href="http://127.0.0.1:5000/contactus">Contact Us</a></li>
+      <li><a href="http://127.0.0.1:5000/faq">FAQ</a></li>
+      <li><a href="http://127.0.0.1:5000/covidupdate">Covid19 Updates</a></li>
+      <li><a href="http://127.0.0.1:5000/luggage">Luggage</a></li>
+        <li><a href="http://127.0.0.1:5000/login">Login</a></li>
+        <li><a href="http://127.0.0.1:5000/admin">Admin</a></li>
+    </ul>
+
+    <img src="{{ url_for('static', filename='images/1.png')}}">
+
+    <div class="searchFlightContentInner">
+        <div class="flightForm" id="divwithjs" style="display: block;">
+            <div class="flightSchedule cf"><a href="#" class="hideBooking">X</a>
+
+                <ul class="tabs cf">
+                    <li class="flights current">
+                        <h2>
+                            <a href="#" class="active" title="Book">
+                                Book</a></h2>
+                        <span class="hover">
+                            Arrow</span></li>
+                    <li class="schedule">
+                        <h2>
+                            <a href="https://book.airindia.in/itd/itd/lang/en/travel/schedules" target="_blank" title="Schedule - External website that opens in a new window">
+                                Schedule</a></h2>
+                        <span class="hover">
+                            Arrow</span></li>
+                    <li class="holidays">
+                        <h2>
+                            <a href="https://book.airindia.in/itd/itd/lang/en/travel/advancedFlightStatus" target="_blank" title="Flight Status - External website that opens in a new window">
+                                Flight Status</a></h2>
+                        <span class="hover">
+                            Arrow</span></li>
+                    <li class="cars">
+                        <h2>
+                        </h2>
+                        <span class="hover">
+                            Arrow</span></li>
+                </ul>
+                <ul class="cat cf displayNone">
+                    <li class="active">
+                        <h2>
+                            <a href="#">
+                                My Booking</a></h2>
+                    </li>
+                    <li>
+                        <h2>
+                            <a href="https://icheck.sita.aero/iCheckWebAI/home" class="hoverTip" target="_blank" title="Currently web check-in is not available for travel from Dhaka and Code Share flights including all Alliance Air (AI 9000 series) flights.">
+                                Web Check-in</a></h2>
+                    </li>
+                    <li>
+                        <h2>
+                            <a href="https://book.airindia.in/itd/itd/lang/en/travel/advancedFlightStatus" target="_blank" title="Flight Status - External website that opens in a new window">
+                                Flight Status</a></h2>
+                    </li>
+                    <li class="last">
+                        <h2>
+                            <a href="" title="Redeem Miles - External website that opens in a new window" target="_blank">
+                                Redeem Miles</a></h2>
+                    </li>
+                </ul>
+                <ul class="block trip cf">
+                    <li>
+                        <fieldset>
+                            <legend class="srAccessHidden">Trip Type</legend>
+                            <div class="radioDate alignLeft">
+                                <div class="iradio" style="position: relative;"><input type="radio" name="_tripType" id="oneway" class="iradio" value="OneWay" style="position: absolute; top: 10%; left: 10%; display: block; width: 80%; height: 80%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 10%; left: 10%; display: block; width: 80%; height: 80%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>
+                                <label class="label" for="oneway">
+                                    One Way</label>
+                            </div>
+                            <div class="radioDate alignLeft">
+                                <div class="iradio checked" style="position: relative;"><input type="radio" name="_tripType" id="roundtrip" class="iradio" value="Return" checked="checked" style="position: absolute; top: 10%; left: 10%; display: block; width: 80%; height: 80%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 10%; left: 10%; display: block; width: 80%; height: 80%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>
+                                <label class="label" for="roundtrip">
+                                    Round Trip</label>
+                            </div>
+                        </fieldset>
+                    </li>
+                    <li class="alignLeft"><a href="https://bookme.airindia.in/AirIndiaB2C/Booking/Search/MultiCity" target="_blank" title="Multi City - External website that opens in a new window" class="link linkButtonNew">
+                        Multi City</a></li>
+                </ul>
+                <div style="display:flex">
+                    <div style="width: 90%;">
+                        <ul class="block scheduledForm cf">
+                            <li>
+                                <label for="from" class="displayNone">
+                                    From</label><span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span><input type="text" title="Fares may not be listed if your routing involves travel via a stopover point with change of flight number/aircraft. You may consider booking using the multi city option." name="from" id="from" class="text tags ui-autocomplete-input" value="From" onfocus="this.value=='From'?this.value='':this.value=this.value" onblur="this.value==''?this.value='From':this.value=this.value" style="display: block;" autocomplete="off">
+                                <label for="ddlFromLocation1" class="displayNone">
+                                    From Location</label><select title="From" id="ddlFromLocation1" name="ddlFromLocation1" class="histype displayNone hasCustomSelect" style="appearance: menulist-button; width: 349px; position: absolute; opacity: 0; height: 26px; font-size: 12.8px; left: 0px; top: 0px;">
+                                <option value="0">
+                                    --Select from location--</option>
+                            </select><span class="histypeSelect histype displayNone" style="display: inline-block;"><span class="histypeSelectInner" style="width: 88px; display: inline-block;">
+                                    --Select from location--</span></span>
+                                <span class="error" id="spnfrom" style="display: none;"><span id="spnfrom1">
+                            Select from airport</span></span> <span class="error" id="spnfromandtolocationsame" style="display: none;"><span>
+                                    From location and to location should not be same</span></span>
+                            </li>
+                            <li>
+
+                                <label for="to" class="displayNone">
+                                    To</label><span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span><input type="text" title="To" name="to" id="to" class="text tags ui-autocomplete-input" value="To" onblur="this.value==''?this.value='To':this.value=this.value" onfocus="this.value=='To'?this.value='':this.value=this.value" style="display: block;" autocomplete="off">
+                                <label for="ddlToLocation1" class="displayNone">
+                                    To Location</label>
+                                <select title="To" id="ddlToLocation1" name="ddlToLocation1" class="histype displayNone hasCustomSelect" style="appearance: menulist-button; width: 349px; position: absolute; opacity: 0; height: 26px; font-size: 12.8px; left: 0px; top: 0px;">
+                                    <option value="0">
+                                        --Select to location--</option>
+                                </select><span class="histypeSelect histype displayNone" style="display: inline-block;"><span class="histypeSelectInner" style="width: 88px; display: inline-block;">
+                                --Select to location--</span></span>
+                                <span class="error" id="spnto" style="display: none;"><span id="spnto1">
+                            Select to airport</span></span>
+                            </li>
+                            <li>
+                                <div class="date alignLeft">
+                                    <label for="_depdateeu1" class="displayNone">
+                                        Depart</label><input type="text" title="Departing" onclick="$('.datepicker1').datepicker({ numberOfMonths: 2 }); $('.datepicker1').datepicker('show');" class="text datepicker1 DepartDt hasDatepicker" id="_depdateeu1" name="_depdateeu1" value="Departing" onblur="this.value==''?this.value='Departing':this.value=this.value" onfocus="this.value=='Departing'?this.value='':this.value=this.value"><img class="ui-datepicker-trigger" src="Images/dateNew.png" alt="Date Picker" title="Date Picker">
+                                    <input type="hidden" id="hdndepvalue">
+                                </div>
+                                <div class="date2 alignLeft" id="divreturningdate">
+                                    <label for="_retdateeu1" class="displayNone">
+                                        Return</label><input type="text" title="Returning" onclick="$('.datepicker2').datepicker({ numberOfMonths: 2 }); $('.datepicker2').datepicker('show');" class="text datepicker2 returnDt hasDatepicker" name="_retdateeu1" id="_retdateeu1" value="Returning" onblur="this.value==''?this.value='Returning':this.value=this.value" onfocus="this.value=='Returning'?this.value='':this.value=this.value"><img class="ui-datepicker-trigger" src="Images/dateNew.png" alt="Date Picker" title="Date Picker">
+                                </div>
+                                <span class="error" id="spndate" style="display: none;"><span id="spndate1">
+                            Select depature date and return date</span></span> </li>
+                            <li>
+                                <fieldset>
+
+                                    <div class="radioDate alignLeft">
+                                        <div class="iradio checked" style="position: relative;"><input type="radio" name="_depdatewindow" id="flexibleDate" title="Flexible Date" checked="checked" value="P3D" class="iradio" style="position: absolute; top: 10%; left: 10%; display: block; width: 80%; height: 80%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 10%; left: 10%; display: block; width: 80%; height: 80%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>
+                                        <label for="flexibleDate">
+                                            Flexible Dates</label>
+                                    </div>
+                                </fieldset>
+                            </li>
+                        </ul></div>
+                    <div>
+                        <div style="font-family: 'cambria';color: black !important;font-size: 14px !important;">VBM/Bubble Schedule &amp; Fares. <a href="/evacuation-flight.htm" target="_blank" title="Click Here" class="link" style="color: red;">Click Here</a>
+                        </div>
+                        <br>
+                        <div style="font-family: 'cambria';color: black !important;font-size: 14px !important;"><div>Covid-19 Alerts. </div> <div><a href="/COVID-19-UPDATED.htm" target="_blank" title="Click Here" class="link" style="color: red;">Click Here</a></div></div>
+
+                    </div>
+                </div>
+                <ul class="block block1 rule cf">
+
+                    <p class="rules">
+                        Would you like to avail of Domestic Concession?
+                        <a href="concessionary-fare.htm" target="_blank" title="Eligibility Rules">
+                            Eligibility Rules</a>
+                    </p>
+
+                    <li style="width:100%">
+                        <fieldset>
+                            <legend class="displayNone">Yes</legend>
+                            <div class="radioDate mart6 alignLeft">
+                                <div class="iradio" style="position: relative;"><input type="radio" name="rules" id="rdrules1" class="iradio" value="Yes" style="position: absolute; top: 10%; left: 10%; display: block; width: 80%; height: 80%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 10%; left: 10%; display: block; width: 80%; height: 80%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>
+                                <label for="rdrules1">
+                                    Yes</label>
+                            </div>
+                            <div class="radioDate mart6 alignLeft">
+                                <div class="iradio checked" style="position: relative;"><input type="radio" name="rules" id="rdrules2" class="iradio" checked="checked" value="No" style="position: absolute; top: 10%; left: 10%; display: block; width: 80%; height: 80%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 10%; left: 10%; display: block; width: 80%; height: 80%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>
+                                <label for="rdrules2" class="">
+                                    No</label>
+                            </div>
+                            <div class="selectBox mart3 w208 alignRight disabled" id="divconcessionaryType">
+                                <label class="displayNone" for="concessionaryType1">
+                                    concessionaryType</label>
+                                <select class="ctype ctype1 hasCustomSelect" title="Concessionary Type" name="concessionaryType1" disabled="disabled" id="concessionaryType1" onchange="javascript:CheckConcessionaryType(this.value);" style="appearance: menulist-button; width: 206px; position: absolute; opacity: 0; height: 26px; font-size: 12.8px; left: 0px; top: 0px;">
+                                    <option value="Select" selected="selected">
+                                        Concessionary Type</option>
+                                    <option value="Youth">
+                                        Youth</option>
+                                    <option value="Student">
+                                        Student</option>
+                                    <option value="SeniorCitizen">
+                                        Senior Citizen</option>
+                                    <option value="GovernmentEmployee">
+                                        LTC - Leave Travel Concession</option>
+                                    <option value="ArmedForce">
+                                        Armed Forces</option>
+                                    <option value="GenReserveEngineeringForce">
+                                        Reserve Engineer</option>
+                                    <option value="ParaMilitaryForce">
+                                        ParaMilitary Force</option>
+                                    <option value="ArmedForcesBraveryAwardee">
+                                        Bravery Awardee</option>
+                                    <option value="WarWidow">
+                                        War Widow</option>
+                                    <option value="WarDisabledOfficer">
+                                        War Disabled Officer</option>
+                                </select><span class="ctypeSelect ctype ctype1 ctypeSelectDisabled" style="display: inline-block;"><span class="ctypeSelectInner" style="width: 194px; display: inline-block;">
+                                        Concessionary Type</span></span>
+                            </div>
+                        </fieldset>
+                    </li>
+                    <li class="date alignLeft selectOptionNew">
+                        <div id="divWarDisabledOfficer1" class="selectBox width55 mart8" style="display: none;">
+                            <label id="Label1" for="ddlWarDisabledOfficer1">
+                                Disabled Officers:</label>
+
+                            <select class="ctype hasCustomSelect" title="Disabled Officers" name="ddlWarDisabledOfficer1" id="ddlWarDisabledOfficer1" style="appearance: menulist-button; width: 37px; position: absolute; opacity: 0; height: 26px; font-size: 12.8px; left: 0px; top: 0px;">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                            </select><span class="ctypeSelect ctype" style="display: inline-block;"><span class="ctypeSelectInner" style="width: 94px; display: inline-block;">1</span></span>
+                        </div>
+                        <div id="divadult1" class="selectBox width55 oneline">
+                            <label id="lbladult1" for="ddladult1">
+                                Adults:</label>
+
+                            <select class="ctype hasCustomSelect" title="Adults" name="ddladult1" id="ddladult1" style="appearance: menulist-button; width: 38px; position: absolute; opacity: 0; height: 26px; font-size: 12.8px; left: 0px; top: 17.6px;">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                            </select><span class="ctypeSelect ctype" style="display: inline-block;"><span class="ctypeSelectInner" style="width: 40px; display: inline-block;">1</span></span>
+                        </div>
+                        <div class="selectBox width55 oneline">
+                            <label for="ddlchildren1">
+                                Children:</label>
+
+                            <select class="ctype hasCustomSelect" title="Children" name="ddlchildren1" id="ddlchildren1" style="appearance: menulist-button; width: 38px; position: absolute; opacity: 0; height: 26px; font-size: 12.8px; left: 0px; top: 17.6px;">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                            </select><span class="ctypeSelect ctype" style="display: inline-block;"><span class="ctypeSelectInner" style="width: 40px; display: inline-block;">0</span></span>
+                        </div>
+                        <div class="selectBox width55 oneline">
+                            <label for="ddlinfants1">
+                                Infants:</label>
+
+                            <select class="ctype hasCustomSelect" title="Infants must be below the age of 2 years before the completion of a One Way/Return journey, or you will need to use the Child option for proceeding further with the booking. You may also choose to contact the local Air India office for the issuance of such tickets." name="ddlinfants1" id="ddlinfants1" style="appearance: menulist-button; width: 38px; position: absolute; opacity: 0; height: 26px; font-size: 12.8px; left: 0px; top: 17.6px;">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                            </select><span class="ctypeSelect ctype" style="display: inline-block;"><span class="ctypeSelectInner" style="width: 40px; display: inline-block;">0</span></span>
+                        </div>
+                        <div id="divclasstype1" style="margin-top: 18px;" class="selectBox lastSelect">
+                            <label class="displayNone" for="_classType1">
+                                _classType</label>
+                            <select class="ctype oneline hasCustomSelect" name="_classType1" title="Type of Class" id="_classType1" onchange="javascript:resetdates(this.value);" style="appearance: menulist-button; width: 100px; position: absolute; opacity: 0; height: 26px; font-size: 12.8px; left: 0px; top: 0px;">
+                                <option value="Economy">
+                                    Economy</option>
+                                <option value="Business">
+                                    Business</option>
+                                <option value="First">
+                                    First</option>
+
+                            </select><span class="ctypeSelect ctype oneline" style="display: inline-block;"><span class="ctypeSelectInner" style="width: 132px; display: inline-block;">
+                                    Economy</span></span>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="scheduledForm last trip cf">
+                    <li class="first" style="display: flex;">
+                        <div class="pcode alignLeft">
+                            <label for="pcode1" class="displayNone">
+                                Promotion Code</label><input name="ctl00$ContentPlaceHolder1$HomeSearchFlights1$pcode1" type="text" id="pcode1" title="PromotionCode" class="text" onfocus="this.value=='<%=strPromotionCode %>'?this.value='':this.value=this.value" onblur="this.value==''?this.value='<%=strPromotionCode %>':this.value=this.value" value="Promotion Code" couponinputbound="true">
+                        </div>
+                        <div class="alignLeft">
+                            <a href="javascript:void(0);" class="info hoverTip  promoPopupLink viewMoreNew">View
+                                More</a>
+                        </div>
+                        <div class="alignLeft">
+                            <input type="submit" value="Book Now" title="Book Now" class="button" id="btnbooking">
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+            <noscript>
+                <div class="flightForm" id="divwithoutjs" style="display: block;">
+                    <div class="flightSchedule cf">
+                        <ul class="tabs cf">
+                            <li class="flights current">
+                                <h2>
+                                    <a href="#" class="active" title="Book">
+                                        Book</a></h2>
+                                <span class="hover">
+                                Arrow</span></li>
+                            <li class="schedule">
+                                <h2>
+                                    <a href="https://book.airindia.in/itd/itd/lang/en/travel/schedules" target="_blank" title="Schedule - External website that opens in a new window">
+                                        Schedule</a></h2>
+                                <span class="hover">
+                                Arrow</span></li>
+                            <li class="holidays">
+                                <h2>
+                                    <a href="https://book.airindia.in/itd/itd/lang/en/travel/advancedFlightStatus" target="_blank" title="Flight Status - External website that opens in a new window">
+                                        Flight Status</a></h2>
+                                <span class="hover">
+                                Arrow</span></li>
+                            <li class="cars">
+                                <h2>
+                                    <a href="https://icheck.sita.aero/iCheckWebAI/Home" target="_blank" class="hoverTip" title="Currently web check-in is not available for travel from Dhaka and Code Share flights including all Alliance Air (AI 9000 series) flights.">
+                                        Web Check-in</a></h2>
+                                <span class="hover">
+                                Arrow</span></li>
+                        </ul>
+                        <ul class="cat cf displayNone">
+                            <li class="active">
+                                <h2>
+                                    <a href="#">
+                                        My Booking</a></h2>
+                            </li>
+                            <li>
+                                <h2>
+                                    <a href="https://fastcheck.sita.aero/cce-presentation-web-ai/entryUpdate.do" class="hoverTip"
+                                       target="_blank" title="Currently web check-in is not available for travel from Dhaka and Code Share flights including all Alliance Air (AI 9000 series) flights.">
+                                        Web Check-in</a></h2>
+                            </li>
+                            <li>
+                                <h2>
+                                    <a href="https://book.airindia.in/itd/itd/lang/en/travel/advancedFlightStatus" target="_blank" title="Flight Status - External website that opens in a new window">
+                                        Flight Status</a></h2>
+                            </li>
+                            <li class="last">
+                                <h2>
+                                    <a href="https://www.flyingreturns.co.in/html/rd.php" title="Redeem Miles - External website that opens in a new window"
+                                       target="_blank">
+                                        Redeem Miles</a></h2>
+                            </li>
+                        </ul>
+                        <ul class="block trip cf">
+                            <li>
+                                <fieldset>
+                                    <legend class="displayNone">oneway</legend>
+                                    <div class="radioDate alignLeft">
+                                        <span class="iradio"><input id="ContentPlaceHolder1_HomeSearchFlights1_rdooneway" type="radio" name="ctl00$ContentPlaceHolder1$HomeSearchFlights1$triptype" value="rdooneway" /></span>
+                                        <label class="label" for="ContentPlaceHolder1_HomeSearchFlights1_rdooneway">
+                                            One Way</label>
+                                    </div>
+                                    <div class="radioDate alignLeft">
+                                        <span class="iradio"><input id="ContentPlaceHolder1_HomeSearchFlights1_rdorountrip" type="radio" name="ctl00$ContentPlaceHolder1$HomeSearchFlights1$triptype" value="rdorountrip" checked="checked" /></span>
+                                        <label class="label" for="ContentPlaceHolder1_HomeSearchFlights1_rdorountrip">
+                                            Round Trip</label>
+                                    </div>
+                                </fieldset>
+                            </li>
+                            <li class="alignRight"><a href="https://book.airindia.in/itd/itd/lang/en/itd/itd/ComplexAir" target="_blank"
+                                                      title="Multi City - External website that opens in a new window" class="link">
+                                Multi City</a></li>
+                        </ul>
+                        <ul class="block scheduledForm cf">
+                            <li>
+                                <label for="ContentPlaceHolder1_HomeSearchFlights1_ddlFromLocation" class="displayNone">
+                                    From</label>
+                                <select name="ctl00$ContentPlaceHolder1$HomeSearchFlights1$ddlFromLocation" id="ContentPlaceHolder1_HomeSearchFlights1_ddlFromLocation" class="histype">
+                                    <option value="0">--Select from location--</option>
+                                    <option value="ABZ">Aberdeen, Aberdeen International Airport, ABZ, Scotland United Kingdom</option>
+                                    <option value="AUH">Abu Dhabi, Abu Dhabi International Airport, AUH, United Arab Emirates</option>
+                                    <option value="ACC">Accra, Kotoka International Airport, ACC, Ghana</option>
+                                    <option value="ADA">Adana, Adana Airport, ADA, Turkey</option>
+                                    <option value="ADD">Addis Ababa, Addis Ababa Airport, ADD, Ethiopia</option>
+                                    <option value="IXA">Agartala, Maharaja Bir Bikram Airport, IXA, India</option>
+                                    <option value="AGX">Agatti, Agatti Aerodrome, AGX, India</option>
+                                    <option value="AGR">Agra, Kheria Airport, AGR, India</option>
+                                    <option value="AMD">Ahmedabad, Sardar Vallabhbhai Patel International Airport, AMD, India</option>
+                                    <option value="AJL">Aizawl, Lengpui Airport, AJL, India</option>
+                                    <option value="IXD">Allahabad, Allahabad Bamrauli Airport, IXD, India</option>
+                                    <option value="ALA">Almaty, Almaty International Airport, ALA, Kazakhstan</option>
+                                    <option value="ATQ">Amritsar, Sri Guru Ram Das Jee International Airport, ATQ, India</option>
+                                    <option value="AMS">Amsterdam, Amsterdam Airport Schiphol, AMS, Netherlands</option>
+                                    <option value="ESB">Ankara, Esenboga Airport, ESB, Turkey</option>
+                                    <option value="AYT">Antalya, Antalya Airport, AYT, Turkey</option>
+                                    <option value="TNR">Antananarivo, Ivato International Airport, TNR, Madagascar</option>
+                                    <option value="ATZ">Assiut, Assiut Airport, ATZ, Egypt</option>
+                                    <option value="ASW">Aswan, Aswan International Airport, ASW, Egypt</option>
+                                    <option value="IXU">Aurangabad, Chikkalthana Airport, IXU, India</option>
+                                    <option value="IXB">Bagdogra, Bagdogra Airport, IXB, India</option>
+                                    <option value="BAH">Bahrain, Bahrain International Airport, BAH, Bahrain</option>
+                                    <option value="BWN">BANDAR SERI B, Brunei International Airport, BWN, Brunei</option>
+                                    <option value="BKK">Bangkok, Suvarnabhumi International Airport, BKK, Thailand</option>
+                                    <option value="BEK">Bareilly, Bareilly Airport, BEK, India</option>
+                                    <option value="BHD">Belfast, Belfast City Airport, BHD, United Kingdom</option>
+                                    <option value="IXG">Belgaum, Belgaum Airport, IXG, India</option>
+                                    <option value="BLR">Bengaluru, Kempegowda International Airport, BLR, India</option>
+                                    <option value="TXL">Berlin, Berlin Tegel Airport, TXL, Germany</option>
+                                    <option value="BUP">Bhatinda, Bhatinda Airport, BUP, India</option>
+                                    <option value="BHU">Bhavnagar, Bhavnagar Airport, BHU, India</option>
+                                    <option value="BHO">Bhopal, Raja Bhoj Airport, BHO, India</option>
+                                    <option value="BBI">Bhubaneswar, Biju Patnaik Airport, BBI, India</option>
+                                    <option value="BHJ">Bhuj, Bhuj Airport, BHJ, India</option>
+                                    <option value="BKB">Bikaner, Nal Airport, BKB, India</option>
+                                    <option value="PAB">Bilaspur, Bilsa Devi Kevtin Airport, PAB, India</option>
+                                    <option value="BHX">Birmingham, Birmingham International Airport, BHX, United Kingdom</option>
+                                    <option value="BOG">Bogota, El Dorado International Airport, BOG, Colombia</option>
+                                    <option value="BNE">Brisbane, Brisbane Airport, BNE, Australia</option>
+                                    <option value="CAI">Cairo, Cairo International Airport, CAI, Egypt</option>
+                                    <option value="YYC">Calgary, Calgary International Airport, YYC, Canada</option>
+                                    <option value="CPT">Cape Town, Cape Town International Airport, CPT, South Africa</option>
+                                    <option value="IXC">Chandigarh, Chandigarh Airport, IXC, India</option>
+                                    <option value="MAA">Chennai, Chennai International Airport, MAA, India</option>
+                                    <option value="ORD">Chicago, Chicago O Hare International Airport, ORD, United States</option>
+                                    <option value="CJB">Coimbatore, Peelamedu Airport, CJB, India</option>
+                                    <option value="CMB">Colombo, Bandaranaike International Airport, CMB, Sri Lanka</option>
+                                    <option value="CPH">Copenhagen, Copenhagen Airport, CPH, Denmark</option>
+                                    <option value="DMM">Dammam, King Fahd International Airport, DMM, Saudi Arabia</option>
+                                    <option value="DAR">Dar Es Salaam, Julius Nyerere International Airport, DAR, Tanzania</option>
+                                    <option value="DED">Dehra Dun, Jolly Grant Airport, DED, India</option>
+                                    <option value="DEL">Delhi, Indira Gandhi International Airport, DEL, India</option>
+                                    <option value="DEN">Denver, Denver International Airport, DEN, United States</option>
+                                    <option value="DTW">Detroit, Detroit Metropolitan Wayne County, DTW, United States</option>
+                                    <option value="DAC">Dhaka, Shahjalal International Airport, DAC, Bangladesh</option>
+                                    <option value="DHM">Dharamshala, Gaggal Airport Kangra, DHM, India</option>
+                                    <option value="DIB">Dibrugarh, Mohanbari Airport, DIB, India</option>
+                                    <option value="DMU">Dimapur, Dimapur Airport, DMU, India</option>
+                                    <option value="DIU">DIU, DIU Airport, DIU, India</option>
+                                    <option value="DOH">Doha, Hamad International Airport, DOH, Qatar</option>
+                                    <option value="DXB">Dubai, Dubai International Airport, DXB, United Arab Emirates</option>
+                                    <option value="DBV">Dubrovnik, Dubrovnik Airport, DBV, Croatia</option>
+                                    <option value="DUR">Durban, King Shaka International Airport, DUR, South Africa</option>
+                                    <option value="RDP">Durgapur, Kazi Nazrul Islam Airport, RDP, India</option>
+                                    <option value="DUS">Dusseldorf, Dusseldorf International Airport, DUS, Germany</option>
+                                    <option value="EDI">Edinburgh, Edinburgh, EDI, United Kingdom</option>
+                                    <option value="EBB">Entebbe, Entebbe International Airport, EBB, Uganda</option>
+                                    <option value="FRA">Frankfurt, Frankfurt Main International Airport, FRA, Germany</option>
+                                    <option value="GBE">Gaborone, Sir Seretse Khama International Airport, GBE, Botswana</option>
+                                    <option value="GAY">Gaya, Bodhgaya Airport, GAY, India</option>
+                                    <option value="GLA">Glasgow, Glasgow, GLA, United Kingdom</option>
+                                    <option value="GOI">Goa, Dabolim Airport, GOI, India</option>
+                                    <option value="GOP">Gorakhpur, Gorakhpur, GOP, India</option>
+                                    <option value="GBI">Gulbarga, Kalaburagi Airport, GBI, India</option>
+                                    <option value="GAU">Guwahati, Lokpriya Gopinath Bordoloi International Airport, GAU, India</option>
+                                    <option value="GWL">Gwalior, Rajmata Vijayaraje Scindia Civil Aviation Terminal, GWL, India</option>
+                                    <option value="YHZ">Halifax, Halifax International Airport, YHZ, Canada</option>
+                                    <option value="HRE">Harare, Harare International Airport, HRE, Zimbabwe</option>
+                                    <option value="HKG">Hong Kong, Hong Kong International Airport, HKG, Hong Kong SAR China</option>
+                                    <option value="HBX">Hubli, Hubli Airport, HBX, India</option>
+                                    <option value="HRG">Hurghada, Hurghada International Airport, HRG, Egypt</option>
+                                    <option value="HYD">Hyderabad, Rajiv Gandhi International Airport, HYD, India</option>
+                                    <option value="IMF">Imphal, Tulihal Airport, IMF, India</option>
+                                    <option value="IDR">Indore, Devi Ahilyabai Holkar Airport, IDR, India</option>
+                                    <option value="IST">Istanbul, Ataturk International Airport, IST, Turkey</option>
+                                    <option value="ADB">Izmir, Adnan Menderes International Airport, ADB, Turkey</option>
+                                    <option value="JLR">Jabalpur, Doomna Airport, JLR, India</option>
+                                    <option value="JAF">Jaffna, Jaffna International Airport, JAF, Sri Lanka</option>
+                                    <option value="JGB">Jagdalpur, Maa Danteshwari Airport, JGB, India</option>
+                                    <option value="JAI">Jaipur, Sanganer Airport, JAI, India</option>
+                                    <option value="CGK">Jakarta, Soekarno–Hatta International Airport, CGK, Indonesia</option>
+                                    <option value="IXJ">Jammu, Satwari Airport, IXJ, India</option>
+                                    <option value="JGA">Jamnagar, Govardhanpur Airport, JGA, India</option>
+                                    <option value="JED">Jeddah, King Abdul Aziz International Airport, JED, Saudi Arabia</option>
+                                    <option value="JRG">Jharsuguda, Veer Surendra Sai Airport, JRG, India</option>
+                                    <option value="JDH">Jodhpur, Jodhpur Airport, JDH, India</option>
+                                    <option value="JNB">Johannesburg, O. R. Tambo International Airport, JNB, South Africa</option>
+                                    <option value="JRH">Jorhat, Rowriah Airport, JRH, India</option>
+                                    <option value="KBL">Kabul, Khwaja Rawash Airport, KBL, Afghanistan</option>
+                                    <option value="IXY">Kandla, Kandla Airport, IXY, India</option>
+                                    <option value="CNN">Kannur, Kannur International Airport, CNN, India</option>
+                                    <option value="KNU">Kanpur, Chakeri Airport, KNU, India</option>
+                                    <option value="KTM">Kathmandu, Tribhuvan International Airport, KTM, Nepal</option>
+                                    <option value="HJR">Khajuraho, Khajuraho Airport, HJR, India</option>
+                                    <option value="KGL">Kigali, Kigali International Airport, KGL, Rwanda</option>
+                                    <option value="JRO">Kilimanjaro, Kilimanjaro International Airport, JRO, Tanzania</option>
+                                    <option value="COK">Kochi, Cochin International Airport, COK, India</option>
+                                    <option value="KLH">Kolhapur, Kohapur Airport, KLH, India</option>
+                                    <option value="CCU">Kolkata, Netaji Subhash Chandra Bose International Airport, CCU, India</option>
+                                    <option value="CCJ">Kozhikode, Calicut International Airport, CCJ, India</option>
+                                    <option value="KUL">Kuala Lumpur, Kuala Lumpur International Airport, KUL, Malaysia</option>
+                                    <option value="KUU">Kullu, Bhuntar Airport, KUU, India</option>
+                                    <option value="KWI">Kuwait, Kuwait International Airport, KWI, Kuwait</option>
+                                    <option value="LOS">Lagos, Murtala Muhammed International Airport, LOS, Nigeria</option>
+                                    <option value="IXL">Leh, Leh Kushok Bakula Rimpochee Airport, IXL, India</option>
+                                    <option value="IXI">Lilabari, Lilabari Airport, IXI, India</option>
+                                    <option value="LIS">Lisbon, Humberto Delgado Airport, LIS, Portugal</option>
+                                    <option value="LHR">London, London Heathrow International Airport, LHR, United Kingdom</option>
+                                    <option value="STN">London, London Stansted International Airport, STN, United Kingdom</option>
+                                    <option value="LAX">Los Angeles, Los Angeles International Airport, LAX, United States</option>
+                                    <option value="LKO">Lucknow, Chaudhary Charan Singh International Airport, LKO, India</option>
+                                    <option value="LUH">Ludhiana, Sahnewal Airport, LUH, India</option>
+                                    <option value="LXR">Luxor, Luxor International Airport, LXR, Egypt</option>
+                                    <option value="MAD">Madrid, Madrid Barajas Airport, MAD, Spain</option>
+                                    <option value="IXM">Madurai, Madurai Airport, IXM, India</option>
+                                    <option value="SEZ">Mahe Island, Seychelles International Airport, SEZ, Seychelles Islands</option>
+                                    <option value="MLE">Male, Male International Airport, MLE, Maldives</option>
+                                    <option value="IXE">Mangalore, Bajpe Airport, IXE, India</option>
+                                    <option value="NAIA">Manila, Manila Ninoy Aquino International Airport, NAIA, Philippines</option>
+                                    <option value="MEL">Melbourne, Melbourne Airport, MEL, Australia</option>
+                                    <option value="MXP">Milan, Milan Malpensa Airport, MXP, Italy</option>
+                                    <option value="MBA">Mombasa, Moi International Airport, MBA, Kenya</option>
+                                    <option value="YUL">Montreal, Montreal Pierre Elliott Trudeau International Airport, YUL, Canada</option>
+                                    <option value="SVO">Moscow, Sheremetyevo International Airport, SVO, Russia</option>
+                                    <option value="DLM">Mugla Dalaman, Dalaman Airport, DLM, Turkey</option>
+                                    <option value="BOM">Mumbai, Chhatrapati Shivaji International Airport, BOM, India</option>
+                                    <option value="MUC">Munich, Munich Franz Josef Strauss Airport, MUC, Germany</option>
+                                    <option value="MCT">Muscat, Muscat International Airport, MCT, Oman</option>
+                                    <option value="MYQ">Mysore, Mysore Airport, MYQ, India</option>
+                                    <option value="NAN">Nadi, Nadi International Airport, NAN, FIJI</option>
+                                    <option value="NAG">Nagpur, Dr Babasaheb Ambedkar International Airport Sonegaon Airport, NAG, India</option>
+                                    <option value="NBO">Nairobi, Jomo Kenyatta International Airport, NBO, Kenya</option>
+                                    <option value="NJF">Najaf, Najaf International Airport, NJF, Iraq</option>
+                                    <option value="NDC">Nanded, Shri Guru Gobind Singh Ji Airport, NDC, India</option>
+                                    <option value="ISK">Nasik, Ozar Airport, ISK, India</option>
+                                    <option value="JFK">New York, New York John F Kennedy International Airport, JFK, United States</option>
+                                    <option value="EWR">Newark, Newark Liberty International Airport, EWR, United States</option>
+                                    <option value="KIX">Osaka, Kansai International Airport, KIX, Japan</option>
+                                    <option value="OSL">Oslo, Oslo Airport Gardermoen, OSL, Norway</option>
+                                    <option value="YOW">Ottawa, Ottawa Macdonald Cartier International Airport, YOW, Canada</option>
+                                    <option value="PGH">Pantnagar, Pantnagar Airport, PGH, India</option>
+                                    <option value="CDG">Paris, Paris Charles de Gaulle Airport, CDG, France</option>
+                                    <option value="IXT">Pasighat, Pasighat Airport, IXT, India</option>
+                                    <option value="IXP">Pathankot, Pathankot Airport, IXP, India</option>
+                                    <option value="PAT">Patna, Lok Nayak Jayaprakash Narain Airport, PAT, India</option>
+                                    <option value="PER">Perth, Perth, PER, Australia</option>
+                                    <option value="IXZ">Port Blair, Veer Savarkar International Airport, IXZ, India</option>
+                                    <option value="OPO">Porto, Francisco Sa Carneiro, OPO, Portugal</option>
+                                    <option value="PNY">Puducherry, Puducherry Airport, PNY, India</option>
+                                    <option value="PNQ">Pune, Lohegaon Airport, PNQ, India</option>
+                                    <option value="RPR">Raipur, Mana Airport, RPR, India</option>
+                                    <option value="RAJ">Rajkot, Rajkot Airport, RAJ, India</option>
+                                    <option value="IXR">Ranchi, Birsa Munda Airport, IXR, India</option>
+                                    <option value="RUH">Riyadh, King Khalid International Airport, RUH, Saudi Arabia</option>
+                                    <option value="FCO">Rome, Rome Fiumicino Airport, FCO, Italy</option>
+                                    <option value="RUN">Saint Denis, Roland Garros Airport, RUN, Reunion Islands</option>
+                                    <option value="YYT">Saint Johns, St Johns International Airport, YYT, Canada</option>
+                                    <option value="ZSE">Saint-Pierre, Pierrefonds Airport, ZSE, Reunion</option>
+                                    <option value="SFO">San Francisco, San Francisco International Airport, SFO, United States</option>
+                                    <option value="ICN">Seoul, Incheon International Airport, ICN, South Korea</option>
+                                    <option value="PVG">Shanghai, Pudong International Airport, PVG, China</option>
+                                    <option value="SHJ">Sharjah, Sharjah International Airport, SHJ, United Arab Emirates</option>
+                                    <option value="SSH">Sharm El Sheikh, Sharm El Sheikh International Airport, SSH, Egypt</option>
+                                    <option value="SHL">Shillong, Barapani Airport, SHL, India</option>
+                                    <option value="SLV">Shimla, Shimla Airport, SLV, India</option>
+                                    <option value="SAG">Shirdi, Shirdi Airport, SAG, India</option>
+                                    <option value="IXS">Silchar, Kumbhirgram Airport, IXS, India</option>
+                                    <option value="SIN">Singapore, Singapore Changi International Airport, SIN, Singapore</option>
+                                    <option value="HMB">Sohag, Sohag International Airport, HMB, HMB, Egypt</option>
+                                    <option value="SPU">Split, Split Airport, SPU, Croatia</option>
+                                    <option value="SXR">Srinagar, Sheikh ul Alam Airport, SXR, India</option>
+                                    <option value="ARN">Stockholm, Stockholm-Arlanda Airport, ARN, Sweden</option>
+                                    <option value="STR">Stuttgart, Stuttgart Airport, STR, Germany</option>
+                                    <option value="STV">Surat, Surat Airport, STV, India</option>
+                                    <option value="SYD">Sydney, Kingsford Smith Airport, SYD, Australia</option>
+                                    <option value="TPE">Taipei, Taoyuan International Airport, TPE, Chinese Taipei</option>
+                                    <option value="TLV">Tel Aviv, Ben Gurion International Airport, TLV, Israel</option>
+                                    <option value="TEZ">Tezpur, Tezpur Airport, TEZ, India</option>
+                                    <option value="TRV">Thiruvananthapuram, Thiruvananthapuram International Airport, TRV, India</option>
+                                    <option value="TRZ">Tiruchirapalli, Tiruchirapalli Airport, TRZ, India</option>
+                                    <option value="TIR">Tirupati, Tirupati Airport, TIR, India</option>
+                                    <option value="NRT">Tokyo, Tokyo Narita International Airport, NRT, Japan</option>
+                                    <option value="YYZ">Toronto, Pearson International Airport, YYZ, Canada</option>
+                                    <option value="UDR">Udaipur, Maharana Pratap Airport, UDR, India</option>
+                                    <option value="BDQ">Vadodara, Sir Sayajirao Gekwad Airport, BDQ, India</option>
+                                    <option value="YVR">Vancouver, Vancouver International Airport, YVR, Canada</option>
+                                    <option value="VNS">Varanasi, Lal Bhadur Shastri Airport, VNS, India</option>
+                                    <option value="VIE">Vienna, Vienna International Airport, VIE, Austria</option>
+                                    <option value="VGA">Vijayawada, Vijayawada, VGA, India</option>
+                                    <option value="VTZ">Visakhapatnam, Visakhapatnam Airport, VTZ, India</option>
+                                    <option value="WAW">Warsaw, Warsaw-Chopin Airport, WAW, Poland</option>
+                                    <option value="IAD">Washington, Washington Dulles International Airport, IAD, United States</option>
+                                    <option value="RGN">Yangon, Yangon International Airport, RGN, Myanmar</option>
+                                    <option value="ZAG">Zagreb, Zagreb Airport, ZAG, Croatia</option>
+                                    <option value="ZNZ">Zanzibar, Abeid Amani Karume International Airport, ZNZ, Tanzania</option>
+                                    <option value="ZRH">Zurich, Zurich Airport, ZRH, Switzerland</option>
+                                </select>
+
+                            </li>
+                            <li>
+                                <label for="ContentPlaceHolder1_HomeSearchFlights1_ddlToLocation" class="displayNone">
+                                    To</label>
+                                <select name="ctl00$ContentPlaceHolder1$HomeSearchFlights1$ddlToLocation" id="ContentPlaceHolder1_HomeSearchFlights1_ddlToLocation" class="histype">
+                                    <option value="0">--Select to location--</option>
+                                    <option value="ABZ">Aberdeen, Aberdeen International Airport, ABZ, Scotland United Kingdom</option>
+                                    <option value="AUH">Abu Dhabi, Abu Dhabi International Airport, AUH, United Arab Emirates</option>
+                                    <option value="ACC">Accra, Kotoka International Airport, ACC, Ghana</option>
+                                    <option value="ADA">Adana, Adana Airport, ADA, Turkey</option>
+                                    <option value="ADD">Addis Ababa, Addis Ababa Airport, ADD, Ethiopia</option>
+                                    <option value="IXA">Agartala, Maharaja Bir Bikram Airport, IXA, India</option>
+                                    <option value="AGX">Agatti, Agatti Aerodrome, AGX, India</option>
+                                    <option value="AGR">Agra, Kheria Airport, AGR, India</option>
+                                    <option value="AMD">Ahmedabad, Sardar Vallabhbhai Patel International Airport, AMD, India</option>
+                                    <option value="AJL">Aizawl, Lengpui Airport, AJL, India</option>
+                                    <option value="IXD">Allahabad, Allahabad Bamrauli Airport, IXD, India</option>
+                                    <option value="ALA">Almaty, Almaty International Airport, ALA, Kazakhstan</option>
+                                    <option value="ATQ">Amritsar, Sri Guru Ram Das Jee International Airport, ATQ, India</option>
+                                    <option value="AMS">Amsterdam, Amsterdam Airport Schiphol, AMS, Netherlands</option>
+                                    <option value="ESB">Ankara, Esenboga Airport, ESB, Turkey</option>
+                                    <option value="AYT">Antalya, Antalya Airport, AYT, Turkey</option>
+                                    <option value="TNR">Antananarivo, Ivato International Airport, TNR, Madagascar</option>
+                                    <option value="ATZ">Assiut, Assiut Airport, ATZ, Egypt</option>
+                                    <option value="ASW">Aswan, Aswan International Airport, ASW, Egypt</option>
+                                    <option value="IXU">Aurangabad, Chikkalthana Airport, IXU, India</option>
+                                    <option value="IXB">Bagdogra, Bagdogra Airport, IXB, India</option>
+                                    <option value="BAH">Bahrain, Bahrain International Airport, BAH, Bahrain</option>
+                                    <option value="BWN">BANDAR SERI B, Brunei International Airport, BWN, Brunei</option>
+                                    <option value="BKK">Bangkok, Suvarnabhumi International Airport, BKK, Thailand</option>
+                                    <option value="BEK">Bareilly, Bareilly Airport, BEK, India</option>
+                                    <option value="BHD">Belfast, Belfast City Airport, BHD, United Kingdom</option>
+                                    <option value="IXG">Belgaum, Belgaum Airport, IXG, India</option>
+                                    <option value="BLR">Bengaluru, Kempegowda International Airport, BLR, India</option>
+                                    <option value="TXL">Berlin, Berlin Tegel Airport, TXL, Germany</option>
+                                    <option value="BUP">Bhatinda, Bhatinda Airport, BUP, India</option>
+                                    <option value="BHU">Bhavnagar, Bhavnagar Airport, BHU, India</option>
+                                    <option value="BHO">Bhopal, Raja Bhoj Airport, BHO, India</option>
+                                    <option value="BBI">Bhubaneswar, Biju Patnaik Airport, BBI, India</option>
+                                    <option value="BHJ">Bhuj, Bhuj Airport, BHJ, India</option>
+                                    <option value="BKB">Bikaner, Nal Airport, BKB, India</option>
+                                    <option value="PAB">Bilaspur, Bilsa Devi Kevtin Airport, PAB, India</option>
+                                    <option value="BHX">Birmingham, Birmingham International Airport, BHX, United Kingdom</option>
+                                    <option value="BOG">Bogota, El Dorado International Airport, BOG, Colombia</option>
+                                    <option value="BNE">Brisbane, Brisbane Airport, BNE, Australia</option>
+                                    <option value="CAI">Cairo, Cairo International Airport, CAI, Egypt</option>
+                                    <option value="YYC">Calgary, Calgary International Airport, YYC, Canada</option>
+                                    <option value="CPT">Cape Town, Cape Town International Airport, CPT, South Africa</option>
+                                    <option value="IXC">Chandigarh, Chandigarh Airport, IXC, India</option>
+                                    <option value="MAA">Chennai, Chennai International Airport, MAA, India</option>
+                                    <option value="ORD">Chicago, Chicago O Hare International Airport, ORD, United States</option>
+                                    <option value="CJB">Coimbatore, Peelamedu Airport, CJB, India</option>
+                                    <option value="CMB">Colombo, Bandaranaike International Airport, CMB, Sri Lanka</option>
+                                    <option value="CPH">Copenhagen, Copenhagen Airport, CPH, Denmark</option>
+                                    <option value="DMM">Dammam, King Fahd International Airport, DMM, Saudi Arabia</option>
+                                    <option value="DAR">Dar Es Salaam, Julius Nyerere International Airport, DAR, Tanzania</option>
+                                    <option value="DED">Dehra Dun, Jolly Grant Airport, DED, India</option>
+                                    <option value="DEL">Delhi, Indira Gandhi International Airport, DEL, India</option>
+                                    <option value="DEN">Denver, Denver International Airport, DEN, United States</option>
+                                    <option value="DTW">Detroit, Detroit Metropolitan Wayne County, DTW, United States</option>
+                                    <option value="DAC">Dhaka, Shahjalal International Airport, DAC, Bangladesh</option>
+                                    <option value="DHM">Dharamshala, Gaggal Airport Kangra, DHM, India</option>
+                                    <option value="DIB">Dibrugarh, Mohanbari Airport, DIB, India</option>
+                                    <option value="DMU">Dimapur, Dimapur Airport, DMU, India</option>
+                                    <option value="DIU">DIU, DIU Airport, DIU, India</option>
+                                    <option value="DOH">Doha, Hamad International Airport, DOH, Qatar</option>
+                                    <option value="DXB">Dubai, Dubai International Airport, DXB, United Arab Emirates</option>
+                                    <option value="DBV">Dubrovnik, Dubrovnik Airport, DBV, Croatia</option>
+                                    <option value="DUR">Durban, King Shaka International Airport, DUR, South Africa</option>
+                                    <option value="RDP">Durgapur, Kazi Nazrul Islam Airport, RDP, India</option>
+                                    <option value="DUS">Dusseldorf, Dusseldorf International Airport, DUS, Germany</option>
+                                    <option value="EDI">Edinburgh, Edinburgh, EDI, United Kingdom</option>
+                                    <option value="EBB">Entebbe, Entebbe International Airport, EBB, Uganda</option>
+                                    <option value="FRA">Frankfurt, Frankfurt Main International Airport, FRA, Germany</option>
+                                    <option value="GBE">Gaborone, Sir Seretse Khama International Airport, GBE, Botswana</option>
+                                    <option value="GAY">Gaya, Bodhgaya Airport, GAY, India</option>
+                                    <option value="GLA">Glasgow, Glasgow, GLA, United Kingdom</option>
+                                    <option value="GOI">Goa, Dabolim Airport, GOI, India</option>
+                                    <option value="GOP">Gorakhpur, Gorakhpur, GOP, India</option>
+                                    <option value="GBI">Gulbarga, Kalaburagi Airport, GBI, India</option>
+                                    <option value="GAU">Guwahati, Lokpriya Gopinath Bordoloi International Airport, GAU, India</option>
+                                    <option value="GWL">Gwalior, Rajmata Vijayaraje Scindia Civil Aviation Terminal, GWL, India</option>
+                                    <option value="YHZ">Halifax, Halifax International Airport, YHZ, Canada</option>
+                                    <option value="HRE">Harare, Harare International Airport, HRE, Zimbabwe</option>
+                                    <option value="HKG">Hong Kong, Hong Kong International Airport, HKG, Hong Kong SAR China</option>
+                                    <option value="HBX">Hubli, Hubli Airport, HBX, India</option>
+                                    <option value="HRG">Hurghada, Hurghada International Airport, HRG, Egypt</option>
+                                    <option value="HYD">Hyderabad, Rajiv Gandhi International Airport, HYD, India</option>
+                                    <option value="IMF">Imphal, Tulihal Airport, IMF, India</option>
+                                    <option value="IDR">Indore, Devi Ahilyabai Holkar Airport, IDR, India</option>
+                                    <option value="IST">Istanbul, Ataturk International Airport, IST, Turkey</option>
+                                    <option value="ADB">Izmir, Adnan Menderes International Airport, ADB, Turkey</option>
+                                    <option value="JLR">Jabalpur, Doomna Airport, JLR, India</option>
+                                    <option value="JAF">Jaffna, Jaffna International Airport, JAF, Sri Lanka</option>
+                                    <option value="JGB">Jagdalpur, Maa Danteshwari Airport, JGB, India</option>
+                                    <option value="JAI">Jaipur, Sanganer Airport, JAI, India</option>
+                                    <option value="CGK">Jakarta, Soekarno–Hatta International Airport, CGK, Indonesia</option>
+                                    <option value="IXJ">Jammu, Satwari Airport, IXJ, India</option>
+                                    <option value="JGA">Jamnagar, Govardhanpur Airport, JGA, India</option>
+                                    <option value="JED">Jeddah, King Abdul Aziz International Airport, JED, Saudi Arabia</option>
+                                    <option value="JRG">Jharsuguda, Veer Surendra Sai Airport, JRG, India</option>
+                                    <option value="JDH">Jodhpur, Jodhpur Airport, JDH, India</option>
+                                    <option value="JNB">Johannesburg, O. R. Tambo International Airport, JNB, South Africa</option>
+                                    <option value="JRH">Jorhat, Rowriah Airport, JRH, India</option>
+                                    <option value="KBL">Kabul, Khwaja Rawash Airport, KBL, Afghanistan</option>
+                                    <option value="IXY">Kandla, Kandla Airport, IXY, India</option>
+                                    <option value="CNN">Kannur, Kannur International Airport, CNN, India</option>
+                                    <option value="KNU">Kanpur, Chakeri Airport, KNU, India</option>
+                                    <option value="KTM">Kathmandu, Tribhuvan International Airport, KTM, Nepal</option>
+                                    <option value="HJR">Khajuraho, Khajuraho Airport, HJR, India</option>
+                                    <option value="KGL">Kigali, Kigali International Airport, KGL, Rwanda</option>
+                                    <option value="JRO">Kilimanjaro, Kilimanjaro International Airport, JRO, Tanzania</option>
+                                    <option value="COK">Kochi, Cochin International Airport, COK, India</option>
+                                    <option value="KLH">Kolhapur, Kohapur Airport, KLH, India</option>
+                                    <option value="CCU">Kolkata, Netaji Subhash Chandra Bose International Airport, CCU, India</option>
+                                    <option value="CCJ">Kozhikode, Calicut International Airport, CCJ, India</option>
+                                    <option value="KUL">Kuala Lumpur, Kuala Lumpur International Airport, KUL, Malaysia</option>
+                                    <option value="KUU">Kullu, Bhuntar Airport, KUU, India</option>
+                                    <option value="KWI">Kuwait, Kuwait International Airport, KWI, Kuwait</option>
+                                    <option value="LOS">Lagos, Murtala Muhammed International Airport, LOS, Nigeria</option>
+                                    <option value="IXL">Leh, Leh Kushok Bakula Rimpochee Airport, IXL, India</option>
+                                    <option value="IXI">Lilabari, Lilabari Airport, IXI, India</option>
+                                    <option value="LIS">Lisbon, Humberto Delgado Airport, LIS, Portugal</option>
+                                    <option value="LHR">London, London Heathrow International Airport, LHR, United Kingdom</option>
+                                    <option value="STN">London, London Stansted International Airport, STN, United Kingdom</option>
+                                    <option value="LAX">Los Angeles, Los Angeles International Airport, LAX, United States</option>
+                                    <option value="LKO">Lucknow, Chaudhary Charan Singh International Airport, LKO, India</option>
+                                    <option value="LUH">Ludhiana, Sahnewal Airport, LUH, India</option>
+                                    <option value="LXR">Luxor, Luxor International Airport, LXR, Egypt</option>
+                                    <option value="MAD">Madrid, Madrid Barajas Airport, MAD, Spain</option>
+                                    <option value="IXM">Madurai, Madurai Airport, IXM, India</option>
+                                    <option value="SEZ">Mahe Island, Seychelles International Airport, SEZ, Seychelles Islands</option>
+                                    <option value="MLE">Male, Male International Airport, MLE, Maldives</option>
+                                    <option value="IXE">Mangalore, Bajpe Airport, IXE, India</option>
+                                    <option value="NAIA">Manila, Manila Ninoy Aquino International Airport, NAIA, Philippines</option>
+                                    <option value="MEL">Melbourne, Melbourne Airport, MEL, Australia</option>
+                                    <option value="MXP">Milan, Milan Malpensa Airport, MXP, Italy</option>
+                                    <option value="MBA">Mombasa, Moi International Airport, MBA, Kenya</option>
+                                    <option value="YUL">Montreal, Montreal Pierre Elliott Trudeau International Airport, YUL, Canada</option>
+                                    <option value="SVO">Moscow, Sheremetyevo International Airport, SVO, Russia</option>
+                                    <option value="DLM">Mugla Dalaman, Dalaman Airport, DLM, Turkey</option>
+                                    <option value="BOM">Mumbai, Chhatrapati Shivaji International Airport, BOM, India</option>
+                                    <option value="MUC">Munich, Munich Franz Josef Strauss Airport, MUC, Germany</option>
+                                    <option value="MCT">Muscat, Muscat International Airport, MCT, Oman</option>
+                                    <option value="MYQ">Mysore, Mysore Airport, MYQ, India</option>
+                                    <option value="NAN">Nadi, Nadi International Airport, NAN, FIJI</option>
+                                    <option value="NAG">Nagpur, Dr Babasaheb Ambedkar International Airport Sonegaon Airport, NAG, India</option>
+                                    <option value="NBO">Nairobi, Jomo Kenyatta International Airport, NBO, Kenya</option>
+                                    <option value="NJF">Najaf, Najaf International Airport, NJF, Iraq</option>
+                                    <option value="NDC">Nanded, Shri Guru Gobind Singh Ji Airport, NDC, India</option>
+                                    <option value="ISK">Nasik, Ozar Airport, ISK, India</option>
+                                    <option value="JFK">New York, New York John F Kennedy International Airport, JFK, United States</option>
+                                    <option value="EWR">Newark, Newark Liberty International Airport, EWR, United States</option>
+                                    <option value="KIX">Osaka, Kansai International Airport, KIX, Japan</option>
+                                    <option value="OSL">Oslo, Oslo Airport Gardermoen, OSL, Norway</option>
+                                    <option value="YOW">Ottawa, Ottawa Macdonald Cartier International Airport, YOW, Canada</option>
+                                    <option value="PGH">Pantnagar, Pantnagar Airport, PGH, India</option>
+                                    <option value="CDG">Paris, Paris Charles de Gaulle Airport, CDG, France</option>
+                                    <option value="IXT">Pasighat, Pasighat Airport, IXT, India</option>
+                                    <option value="IXP">Pathankot, Pathankot Airport, IXP, India</option>
+                                    <option value="PAT">Patna, Lok Nayak Jayaprakash Narain Airport, PAT, India</option>
+                                    <option value="PER">Perth, Perth, PER, Australia</option>
+                                    <option value="IXZ">Port Blair, Veer Savarkar International Airport, IXZ, India</option>
+                                    <option value="OPO">Porto, Francisco Sa Carneiro, OPO, Portugal</option>
+                                    <option value="PNY">Puducherry, Puducherry Airport, PNY, India</option>
+                                    <option value="PNQ">Pune, Lohegaon Airport, PNQ, India</option>
+                                    <option value="RPR">Raipur, Mana Airport, RPR, India</option>
+                                    <option value="RAJ">Rajkot, Rajkot Airport, RAJ, India</option>
+                                    <option value="IXR">Ranchi, Birsa Munda Airport, IXR, India</option>
+                                    <option value="RUH">Riyadh, King Khalid International Airport, RUH, Saudi Arabia</option>
+                                    <option value="FCO">Rome, Rome Fiumicino Airport, FCO, Italy</option>
+                                    <option value="RUN">Saint Denis, Roland Garros Airport, RUN, Reunion Islands</option>
+                                    <option value="YYT">Saint Johns, St Johns International Airport, YYT, Canada</option>
+                                    <option value="ZSE">Saint-Pierre, Pierrefonds Airport, ZSE, Reunion</option>
+                                    <option value="SFO">San Francisco, San Francisco International Airport, SFO, United States</option>
+                                    <option value="ICN">Seoul, Incheon International Airport, ICN, South Korea</option>
+                                    <option value="PVG">Shanghai, Pudong International Airport, PVG, China</option>
+                                    <option value="SHJ">Sharjah, Sharjah International Airport, SHJ, United Arab Emirates</option>
+                                    <option value="SSH">Sharm El Sheikh, Sharm El Sheikh International Airport, SSH, Egypt</option>
+                                    <option value="SHL">Shillong, Barapani Airport, SHL, India</option>
+                                    <option value="SLV">Shimla, Shimla Airport, SLV, India</option>
+                                    <option value="SAG">Shirdi, Shirdi Airport, SAG, India</option>
+                                    <option value="IXS">Silchar, Kumbhirgram Airport, IXS, India</option>
+                                    <option value="SIN">Singapore, Singapore Changi International Airport, SIN, Singapore</option>
+                                    <option value="HMB">Sohag, Sohag International Airport, HMB, HMB, Egypt</option>
+                                    <option value="SPU">Split, Split Airport, SPU, Croatia</option>
+                                    <option value="SXR">Srinagar, Sheikh ul Alam Airport, SXR, India</option>
+                                    <option value="ARN">Stockholm, Stockholm-Arlanda Airport, ARN, Sweden</option>
+                                    <option value="STR">Stuttgart, Stuttgart Airport, STR, Germany</option>
+                                    <option value="STV">Surat, Surat Airport, STV, India</option>
+                                    <option value="SYD">Sydney, Kingsford Smith Airport, SYD, Australia</option>
+                                    <option value="TPE">Taipei, Taoyuan International Airport, TPE, Chinese Taipei</option>
+                                    <option value="TLV">Tel Aviv, Ben Gurion International Airport, TLV, Israel</option>
+                                    <option value="TEZ">Tezpur, Tezpur Airport, TEZ, India</option>
+                                    <option value="TRV">Thiruvananthapuram, Thiruvananthapuram International Airport, TRV, India</option>
+                                    <option value="TRZ">Tiruchirapalli, Tiruchirapalli Airport, TRZ, India</option>
+                                    <option value="TIR">Tirupati, Tirupati Airport, TIR, India</option>
+                                    <option value="NRT">Tokyo, Tokyo Narita International Airport, NRT, Japan</option>
+                                    <option value="YYZ">Toronto, Pearson International Airport, YYZ, Canada</option>
+                                    <option value="UDR">Udaipur, Maharana Pratap Airport, UDR, India</option>
+                                    <option value="BDQ">Vadodara, Sir Sayajirao Gekwad Airport, BDQ, India</option>
+                                    <option value="YVR">Vancouver, Vancouver International Airport, YVR, Canada</option>
+                                    <option value="VNS">Varanasi, Lal Bhadur Shastri Airport, VNS, India</option>
+                                    <option value="VIE">Vienna, Vienna International Airport, VIE, Austria</option>
+                                    <option value="VGA">Vijayawada, Vijayawada, VGA, India</option>
+                                    <option value="VTZ">Visakhapatnam, Visakhapatnam Airport, VTZ, India</option>
+                                    <option value="WAW">Warsaw, Warsaw-Chopin Airport, WAW, Poland</option>
+                                    <option value="IAD">Washington, Washington Dulles International Airport, IAD, United States</option>
+                                    <option value="RGN">Yangon, Yangon International Airport, RGN, Myanmar</option>
+                                    <option value="ZAG">Zagreb, Zagreb Airport, ZAG, Croatia</option>
+                                    <option value="ZNZ">Zanzibar, Abeid Amani Karume International Airport, ZNZ, Tanzania</option>
+                                    <option value="ZRH">Zurich, Zurich Airport, ZRH, Switzerland</option>
+                                </select>
+
+                            </li>
+                            <li>
+                                <div class="date alignLeft">
+                                    <label for="ContentPlaceHolder1_HomeSearchFlights1_txtfromdate" class="displayNone">
+                                        Departing</label>
+                                    <input name="ctl00$ContentPlaceHolder1$HomeSearchFlights1$txtfromdate" type="text" id="ContentPlaceHolder1_HomeSearchFlights1_txtfromdate" class="text datepicker" />
+                                </div>
+                                <div class="date2 alignLeft">
+                                    <label for="ContentPlaceHolder1_HomeSearchFlights1_txttodate" class="displayNone">
+                                        Returning</label>
+                                    <input name="ctl00$ContentPlaceHolder1$HomeSearchFlights1$txttodate" type="text" id="ContentPlaceHolder1_HomeSearchFlights1_txttodate" class="text datepicker" />
+                                </div>
+                            </li>
+                            <li>
+                                <fieldset>
+                                    <legend class="displayNone">dateselection</legend>
+                                    <div class="radioDate alignLeft">
+                                        <!--<label for="fixedDate" class="displayNone">
+                                    Fixed Dates</label>-->
+                                        <span class="iradio"><input id="ContentPlaceHolder1_HomeSearchFlights1_rdofixeddate" type="radio" name="ctl00$ContentPlaceHolder1$HomeSearchFlights1$dateselection" value="rdofixeddate" /></span>
+                                        <label for="ContentPlaceHolder1_HomeSearchFlights1_rdofixeddate">
+                                            Fixed Dates</label>
+                                    </div>
+                                    <div class="radioDate alignLeft">
+                                        <!--<label for="flexibleDate" class="displayNone">
+                                    Flexible Dates</label>-->
+                                        <span class="iradio"><input id="ContentPlaceHolder1_HomeSearchFlights1_rdoflexibledate" type="radio" name="ctl00$ContentPlaceHolder1$HomeSearchFlights1$dateselection" value="rdoflexibledate" checked="checked" /></span>
+                                        <label for="ContentPlaceHolder1_HomeSearchFlights1_rdoflexibledate">
+                                            Flexible Dates</label>
+                                    </div>
+                                </fieldset>
+                            </li>
+                        </ul>
+                        <ul class="block block1 rule cf">
+                            <li>
+                                <p class="rules">
+                                    Would you like to avail of Domestic Concession?<a href="concessionary-fare.htm" target="_blank" title="Eligibility Rules">
+                                    Eligibility Rules</a></p>
+                            </li>
+                            <li class="cf">
+                                <fieldset>
+                                    <legend class="displayNone">rules</legend>
+                                    <div class="radioDate mart6 alignLeft">
+                                        <!--<label for="yes" class="displayNone">
+                                    Yes</label>-->
+                                        <span class="iradio"><input id="ContentPlaceHolder1_HomeSearchFlights1_rdorules1" type="radio" name="ctl00$ContentPlaceHolder1$HomeSearchFlights1$rules" value="rdorules1" /></span>
+                                        <label for="ContentPlaceHolder1_HomeSearchFlights1_rdorules1">
+                                            Yes</label>
+                                    </div>
+                                    <div class="radioDate mart6 alignLeft">
+                                        <!--<label for="no" class="displayNone">
+                                    No</label>-->
+                                        <span class="iradio"><input id="ContentPlaceHolder1_HomeSearchFlights1_rdorules2" type="radio" name="ctl00$ContentPlaceHolder1$HomeSearchFlights1$rules" value="rdorules2" checked="checked" /></span>
+                                        <label for="ContentPlaceHolder1_HomeSearchFlights1_rdorules2">
+                                            No</label>
+                                    </div>
+                                    <div class="selectBox mart3 w208 alignRight">
+                                        <label for="ContentPlaceHolder1_HomeSearchFlights1_concessionaryType" class="displayNone">
+                                            Concessionary Type</label>
+                                        <select name="ctl00$ContentPlaceHolder1$HomeSearchFlights1$concessionaryType" id="ContentPlaceHolder1_HomeSearchFlights1_concessionaryType" class="ctype ctype1">
+                                            <option selected="selected" value="0">Concessionary Type</option>
+                                            <option value="Youth">Youth</option>
+                                            <option value="Student">Student</option>
+                                            <option value="SeniorCitizen">Senior Citizen</option>
+                                            <option value="GovernmentEmployee">LTC - Leave Travel Concession</option>
+                                            <option value="ArmedForce">Armed Forces</option>
+                                            <option value="GenReserveEngineeringForce">Reserve Engineer</option>
+                                            <option value="ParaMilitaryForce">ParaMilitary Force</option>
+                                            <option value="ArmedForcesBraveryAwardee">Bravery Awardee</option>
+                                            <option value="WarWidow">War Widow</option>
+                                            <option value="WarDisabledOfficer">War Disabled Officer</option>
+
+                                        </select>
+                                    </div>
+
+                                </fieldset>
+                            </li>
+                            <li class="date alignLeft selectOptionNew">
+                                <div id="ContentPlaceHolder1_HomeSearchFlights1_divWarDisabledOfficer" class="selectBox width55 mart8 displayNone">
+                                    <label id="lblWarDisabledOfficer" for="ContentPlaceHolder1_HomeSearchFlights1_ddlWarDisabledOfficer">
+                                        Disabled Officers:</label>
+                                    <select name="ctl00$ContentPlaceHolder1$HomeSearchFlights1$ddlWarDisabledOfficer" id="ContentPlaceHolder1_HomeSearchFlights1_ddlWarDisabledOfficer" class="ctype ctype3">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                    </select>
+                                </div>
+                                <div id="divadult" class="selectBox width55 oneline mart8">
+                                    <label id="lbladult" for="ContentPlaceHolder1_HomeSearchFlights1_ddladult">
+                                        Adults:</label>
+                                    <select name="ctl00$ContentPlaceHolder1$HomeSearchFlights1$ddladult" id="ContentPlaceHolder1_HomeSearchFlights1_ddladult" class="ctype ctype3">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                    </select>
+                                </div>
+                                <div class="selectBox width55 oneline mart8">
+                                    <label for="ContentPlaceHolder1_HomeSearchFlights1_ddlchildren">
+                                        Children:</label>
+                                    <select name="ctl00$ContentPlaceHolder1$HomeSearchFlights1$ddlchildren" id="ContentPlaceHolder1_HomeSearchFlights1_ddlchildren" class="ctype ctype3">
+                                        <option value="0">0</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                    </select>
+                                </div>
+                                <div class="selectBox width55 oneline mart8">
+                                    <label for="ContentPlaceHolder1_HomeSearchFlights1_ddlinfants">
+                                        Infants:</label>
+                                    <select name="ctl00$ContentPlaceHolder1$HomeSearchFlights1$ddlinfants" id="ContentPlaceHolder1_HomeSearchFlights1_ddlinfants" class="ctype ctype3">
+                                        <option value="0">0</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                    </select>
+                                </div>
+                                <div id="divclasstype" class="selectBox lastSelect mart8 width130">
+                                    <label for="ContentPlaceHolder1_HomeSearchFlights1__classType" class="displayNone">
+                                        Economy</label>
+                                    <select name="ctl00$ContentPlaceHolder1$HomeSearchFlights1$_classType" id="ContentPlaceHolder1_HomeSearchFlights1__classType" class="ctype ctype2">
+                                        <option value="Economy">Economy</option>
+                                        <option value="Business">Business</option>
+                                        <option value="First">First</option>
+                                        <option value="PremiumEconomy">Business/Economy</option>
+                                        <option value="PremiumBusiness">First/Business</option>
+                                    </select>
+                                </div>
+                            </li>
+                        </ul>
+                        <ul class="scheduledForm last trip cf">
+                            <li class="first displayNone">
+                                <div class="pcode alignLeft">
+                                    <label for="ContentPlaceHolder1_HomeSearchFlights1_pcode" class="displayNone">
+                                        Promotion Code</label>
+                                    <input name="ctl00$ContentPlaceHolder1$HomeSearchFlights1$pcode" type="text" id="ContentPlaceHolder1_HomeSearchFlights1_pcode" class="text" /></div>
+                                <a href="javascript:void(0);" class="info hoverTip" title="What is Promo code? A promotion code is an alpha-numeric code associated with a special offer. This would be vailid for a limited period of time and for the specific promotion only. On entering the code here, the fare search results related to this offer will be displayed">
+                                </a></li>
+                            <li class="alignRight">
+                                <input type="submit" name="ctl00$ContentPlaceHolder1$HomeSearchFlights1$btnsubmit" value="Book Now" id="ContentPlaceHolder1_HomeSearchFlights1_btnsubmit" class="button" />
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </noscript>
+        </div>
+    <a onclick="return fnCheckIn();" href="#" class="webCheckLink"> Web Check-in</a>
+
+    <div class="homepageimages">
+        <img src="{{ url_for('static', filename='images/nature1.jpg')}}">
+        <img src="{{ url_for('static', filename='images/nature8.jpg')}}">
+        <img src="{{ url_for('static', filename='images/nature3.jpg')}}">
+        <img src="{{ url_for('static', filename='images/nature5.jpg')}}">
+    </div>
+
+    <div class="homepageimages">
+        <img src="{{ url_for('static', filename='images/nature4.jpg')}}">
+        <img src="{{ url_for('static', filename='images/nature6.jpeg')}}">
+        <img src="{{ url_for('static', filename='images/nature7.jpg')}}">
+        <img src="{{ url_for('static', filename='images/nature2.jpg')}}">
+    </div>
+
+<div class="copyright">
+	&copy; Copyright. Emerging Technology Project.
+</div>
+
+</body>
+</html>
